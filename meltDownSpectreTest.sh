@@ -47,7 +47,7 @@ echo
 un=`uname -r`
 res1=`grep -q CONFIG_PAGE_TABLE_ISOLATION=y /boot/config-$un && echo "${GREEN_COLOR}PASSED${NO_COLOR}" || echo "${RED_COLOR}FAILED${NO_COLOR}"`
 echo -e "CONFIG_PAGE_TABLE_ISOLATION check : $res1"
-echo 
+echo
 
 #Test 2 : Check for presence of cpu_insecure text in output of /proc/cpuinfo. Its presence means its being reported as patched.
 res2=`grep -q cpu_insecure /proc/cpuinfo && echo "${GREEN_COLOR}PASSED${NO_COLOR}" || echo "${RED_COLOR}FAILED${NO_COLOR}"`
@@ -57,7 +57,7 @@ echo
 #Test 3 : Check for presence of specific text in dmesg output emitted during the boot process.
 res3=`dmesg | grep -q "Kernel/User page tables isolation: enabled" && echo "${GREEN_COLOR}PASSED${NO_COLOR}" || echo "${RED_COLOR}FAILED${NO_COLOR}"`
 echo -e "DMESG message check : $res3"
-echo 
+echo
 
 #If all tests passed, its good news
 if [ "$res1" == "${GREEN_COLOR}PASSED${NO_COLOR}" ] && [ "$res2" == "${GREEN_COLOR}PASSED${NO_COLOR}" ] && [ "$res3" == "${GREEN_COLOR}PASSED${NO_COLOR}" ]; then
@@ -69,6 +69,6 @@ fi
 echo
 
 #Standard disclaimer in any case.
-echo "Disclaimer: These tests are by no means exhaustive or 100% acurate and can result in false positives/negatives being reported." 
-echo "            Please consider the test results as indicative values only. There are no guanrantees claimed whatsoever."
+echo "Disclaimer: These tests are by no means exhaustive or 100% acurate and can result in false positives/negatives being reported."
+echo "            Please consider the test results as indicative values only. There are no guarantees claimed whatsoever."
 echo
